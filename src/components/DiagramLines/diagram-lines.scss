@@ -1,0 +1,130 @@
+@use '../../styles/variables' as *;
+
+.diagram {
+  &-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    pointer-events: none;
+
+    @media (max-width: 769px) {
+      display: none;
+    }
+  }
+
+  &-line {
+    stroke: $color-primary;
+    opacity: 0.1;
+  }
+
+  &-period-label {
+    font-family: 'PT Sans';
+    font-size: 130px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    &.start-date {
+      fill: #5D5FEF;
+    }
+
+    &.end-date {
+      fill: #EF5DA8;
+    }
+
+    @media (max-width: 769px) {
+      display: none;
+    }
+  }
+
+  &-dot {
+    fill: $color-primary;
+    transition: all 0.2s ease-out;
+
+    &-hover-area {
+      pointer-events: all;
+      z-index: 5;
+    }
+
+    &-selected,
+    &.clickable:hover {
+      fill: $color-hover;
+      stroke: $color-hover-stroke;
+      stroke-width: 1px;
+    }
+
+    &-number {
+      fill: $color-primary;
+      font-size: 20px;
+      text-anchor: middle;
+      dominant-baseline: central;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    &-selected ~ &-number,
+    &-hover-area:hover ~ &-number {
+      opacity: 1;
+    }
+  }
+
+  &-circle {
+    fill: none;
+    stroke: $color-primary;
+    opacity: 0.2;
+  }
+}
+
+.theme-label-container {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  color: $color-primary;
+  white-space: nowrap;
+  text-align: left;
+  pointer-events: none;
+}
+
+.gradient-line {
+  fill: url(#blueToRed);
+}
+
+.timeline-period {
+  display: none;
+  margin: 30vh 0 10vh 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+
+  &-label {
+    font-family: 'PT Sans';
+    font-size: 18vw;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 0;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-start-date {
+    color: #5D5FEF;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  &-end-date {
+    color: #EF5DA8;
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+
+  @media (max-width: 769px) {
+    display: flex;
+  }
+}

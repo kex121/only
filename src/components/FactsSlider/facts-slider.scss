@@ -1,0 +1,88 @@
+@use '../../styles/variables' as *;
+
+.facts-slider {
+  position: relative;
+  width: 55vw;
+  margin: 0 auto;
+
+  @media (max-width: 769px) {
+    width: 96vw;
+  }
+
+  &__swiper {
+    .swiper-pagination {
+      display: none;
+
+      @media (max-width: 769px) {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: auto;
+        max-width: 90vw;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+  }
+
+  &__line {
+    @media (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  &__container {
+    position: relative;
+    margin: 0 45px;
+    background: transparent;
+  }
+
+  &__slide {
+    &-gray {
+      opacity: 0.5;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-30%);
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(66, 86, 122, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    &:hover {
+      border-color: rgba(66, 86, 122, 0.7);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    &--prev {
+      left: -2%;
+    }
+
+    &--next {
+      right: 0;
+    }
+
+    svg {
+      width: 7px;
+      height: 12px;
+      color: #42567a;
+    }
+  }
+}

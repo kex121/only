@@ -1,0 +1,38 @@
+.fact {
+    height: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+
+    &:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &_year {
+      font-size: 20px;
+      color: #3877ee;
+      font-weight: 600;
+      margin-bottom: 8px;
+      flex-shrink: 0;
+
+      @media (max-width: 769px) {
+        margin: 10px 0;
+      }
+    }
+
+    &_description {
+      font-size: 16px;
+      color: #42567a;
+      line-height: 1.4;
+      flex: 1;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+  }
